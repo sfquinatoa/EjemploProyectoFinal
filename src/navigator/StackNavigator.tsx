@@ -1,5 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { BienvenidoScrenn } from '../Screen/BienvenidoScreen';
+import { BienvenidoScreen } from '../Screen/BienvenidoScreen';
 import { FormularioScreen } from '../Screen/formularioScreen';
 
 
@@ -14,7 +14,7 @@ export const StackNavigator = () => {
     }}>
       <Stack.Screen name="Bienvenido"
         options={{ headerShown: false }}
-        component={BienvenidoScrenn} />
+        component={BienvenidoScreen} />
 
         <Stack.Screen name="Formulario"
         options={{ headerShown: false }}

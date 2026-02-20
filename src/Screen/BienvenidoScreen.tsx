@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-export const BienvenidoScrenn = () => {
+export const BienvenidoScreen = () => {
     const navigation = useNavigation<any>();
     return (
         <View >

@@ -4,7 +4,7 @@ import { stylesGlobal } from '../themes/appThemes';
 import { TitleComponent } from '../components/TitleComponent';
 import { BodyComponent } from '../components/BodyComponent';
 import { ButtonComponent } from '../components/ButtonComponent';
-import { ImputComponent } from '../components/ImputComplement';
+import { InputComponent } from '../components/ImputComplement';
 
 //interface defina laestructura de lobjeto indicado
 interface Formlario {
@@ -50,9 +50,9 @@ export const FormularioScreen = () => {
                 <Text style={stylesGlobal.titleWelcome} >Realiza tu calculo </Text>
                 <Text>Realiza tu diviciones en esta tu App</Text>
                 <View>
-                    <ImputComponent placeholder='numero 1' keyboardType='numeric' name="num1"
+                    <InputComponent placeholder='numero 1' keyboardType='numeric' name="num1"
                         handleChangeValue={handleChangeValue} />
-                    <ImputComponent placeholder='numero 2' keyboardType='numeric' name="num2"
+                    <InputComponent placeholder='numero 2' keyboardType='numeric' name="num2"
                         handleChangeValue={handleChangeValue} />
                 </View>
                 <ButtonComponent buttonText='Calcular' onPress={handleCalcularConsola}
