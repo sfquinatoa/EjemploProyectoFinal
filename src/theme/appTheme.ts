@@ -14,10 +14,11 @@ export const styleGlobal = StyleSheet.create({
         borderTopLeftRadius:25,
         borderTopRightRadius: 25,
         paddingHorizontal: 30,
-        paddingTop:40
+        paddingVertical:40
     },
     titleWelcome:{
-        fontSize:20,
+        fontSize:17,
+        textAlign: 'center',
         fontWeight: 'bold'
     },
     imput:{
@@ -38,5 +39,109 @@ export const styleGlobal = StyleSheet.create({
         textAlign: 'center',
         color: SECUNDARY_COLOR,
         fontWeight: 'bold'
+    },
+    iconPassword:{
+        position: 'absolute',
+        bottom: 15,
+        right:10
+    },
+    textRedirect:{
+        marginTop: 20,
+        fontSize:16,
+        color: PRIMARY_COLOR,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    containerCard:{
+        //flexDirection: 'row',
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding:10,
+        borderWidth:1,
+        borderColor: "black",
+        borderRadius:10,
+        borderStyle: 'solid',
+        margin: 7,
+        marginBottom:15,
+        shadowColor:"black",
+        shadowOpacity: 0.25,
+        shadowRadius: 2.65,
+
+
+    },
+    titleCard:{
+        fontWeight:'bold',
+        textAlign:'center',
+        fontSize: 16
+    },
+    containerText:{
+        textAlign:'center',
+    },
+    imageCard:{
+        width: 80,
+        height:80
+    },
+    iconCard:{
+        flex:1,
+        alignItems: 'flex-end',
+        marginTop:2
+    },
+    containerModal:{
+        flex:1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor:'rgba(0,0,0,0.5)'
+
+    },
+    bodyModal:{
+        padding:20,
+        backgroundColor: SECUNDARY_COLOR,
+        borderRadius:10
+        
+    },
+    headerModal:{
+        flexDirection:'row',
+        borderBlockColor:'white',
+        borderBottomWidth:1,
+        padding:10,
+    },
+    titleModal:{
+        fontWeight:'bold',
+        fontSize:18
+    }, 
+    imageModal:{
+        height:200,
+        width:200
+    },
+    containerQuantity:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonQuiantity:{
+        backgroundColor:TERTIARY_COLOR,
+        height: 50,
+        width: 50,
+        borderRadius:50,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin:15
+    },
+    buttonQuantityText:{
+        color: SECUNDARY_COLOR,
+        fontSize:20,
+        fontWeight:'bold'
+    },
+    textTotalPrice:{
+        fontSize:18,
+        fontWeight:'bold',
+        marginBottom:10
+    },
+    textStock:{
+        fontSize:18,
+        color: 'red',
+        textAlign: 'center'
     }
+
 })

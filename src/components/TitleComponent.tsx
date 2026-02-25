@@ -13,7 +13,7 @@ interface Props{
 
     <Text style ={{
                 ...styleGlobal.title,
-                height: height* 0.12}}>{title}
+                height: height* 0.15}}>{title}
                 </Text>
     )
 }

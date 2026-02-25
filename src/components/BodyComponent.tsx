@@ -10,7 +10,7 @@ export const BodyComponent = (props: any) => {
     return (
         <View style ={{
             ...styleGlobal.containerBody,
-            height: height* 0.88 
+            height: height* 0.85
             }}>
             {props.children}
         </View>
