@@ -50,6 +50,11 @@ export const HomeScreen = () => {
     const hiddenModal =(): void =>{
         setShowModal(!showModal);
     }
+    // Función para limpiar el carrito
+    const handleClearCart = (): void => {
+    setCart([]); //
+    }
+    
 
     //Funcion para controlar el stock de los productos
     const changeStockProduct =(id: number, quantity: number): void =>{
@@ -102,7 +107,7 @@ export const HomeScreen = () => {
             numColumns ={2}
             columnWrapperStyle={{justifyContent:'space-between'}}/>
         </BodyComponent>
-        <ModalCartComponent isVisible={showModal} cart={cart} hiddenModal={hiddenModal}/>
+        <ModalCartComponent isVisible={showModal} cart={cart} hiddenModal={hiddenModal} clearCart={handleClearCart}/>
     </View>
     )
 }

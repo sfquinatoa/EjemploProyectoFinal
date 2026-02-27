@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-    Image,
-    Modal,
-    Text,
-    TouchableOpacity,
-    useWindowDimensions,
-    View,
-} from "react-native";
+import {Image, Modal,Text,TouchableOpacity,useWindowDimensions,View,} from "react-native";
 import { Product } from "../HomeScreen";
 import { styleGlobal } from "../../../theme/appTheme";
 import Icon from "@expo/vector-icons/MaterialIcons";

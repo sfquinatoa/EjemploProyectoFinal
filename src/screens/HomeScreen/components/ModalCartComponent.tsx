@@ -10,9 +10,10 @@ interface Props{
     isVisible:boolean;
     cart: Cart[]; //arreglo con los productos del carrito
     hiddenModal:() =>void; //Cerrar el modal
+    clearCart:()=>void;
 }
 
-export const ModalCartComponent = ({isVisible, cart, hiddenModal}: Props) => {
+export const ModalCartComponent = ({isVisible, cart, hiddenModal, clearCart}: Props) => {
     const {width} = useWindowDimensions();
 
     //Funcion para calcular el total a pagar
@@ -26,9 +27,23 @@ export const ModalCartComponent = ({isVisible, cart, hiddenModal}: Props) => {
 
     //Funcion para comprar productos
     const handleBuy=(): void=>{
+        clearCart();
         hiddenModal();
-
     }
+
+//Funcion para evitar que se repita el producto y aumente en cantidad
+const groupedProducts: { [key: number]: Cart } = {};
+cart.forEach(item => {
+    if (groupedProducts[item.id]) {
+    groupedProducts[item.id].quantity += 1;
+    groupedProducts[item.id].total += item.price;
+    } else {
+    groupedProducts[item.id] = { ...item };
+    }
+});
+const groupedCart = Object.values(groupedProducts);
+//
+
     return (
     <Modal visible={isVisible} animationType='fade' transparent={true}>
         <View style={styleGlobal.containerModal}>
@@ -45,6 +60,12 @@ export const ModalCartComponent = ({isVisible, cart, hiddenModal}: Props) => {
                 onPress={hiddenModal}/>
             </View>
             </View>
+                {groupedCart.length === 0 ? (
+                    <Text style={{ textAlign:'center',fontSize:20, marginVertical:20, color:'red' }}>
+                        "No existen productos en el carrito"
+                    </Text>
+                ) : (
+                    <>
             <View style={styleGlobal.headerTable}>
                 <Text style={styleGlobal.headerTextTable}>Productos</Text>
                 <View style ={styleGlobal.headerDescription}>
@@ -60,13 +81,13 @@ export const ModalCartComponent = ({isVisible, cart, hiddenModal}: Props) => {
                 </View>
             </View>
             <FlatList
-            data={cart}
+            data={groupedCart}
             renderItem={({item}) =>
                 <View style={styleGlobal.headerTable}>
             <Text>{item.name}</Text>
             <View style={styleGlobal.headerDescription}>
             <Text style={{marginLeft:10}}>${item.price.toFixed(2)}</Text>
-            <Text style={{marginHorizontal:25}}>${item.quantity}</Text>
+            <Text style={{marginHorizontal:25}}>{item.quantity}</Text>
             <Text style={{marginHorizontal:10}}>${item.total.toFixed(2)}</Text>
             </View>
             </View>
@@ -80,9 +101,10 @@ export const ModalCartComponent = ({isVisible, cart, hiddenModal}: Props) => {
             onPress={handleBuy}>
             <Text style = {styleGlobal.buttonText}>Comprar</Text>
                 </TouchableOpacity>
+                </>
+                )}
             </View>
         </View>
-
     </Modal>
     )
 }
